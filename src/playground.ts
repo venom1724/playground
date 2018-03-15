@@ -143,7 +143,8 @@ class Player {
 let state = State.deserializeState();
 
 // Filter out inputs that are hidden.
-state.getHiddenProps().forEach(prop => {
+let stuff = ["regularizationRate", "percTrainData", "batchSize", "regularization", "activation", "showTestData", "stepButton", "noise"];
+stuff.forEach(prop => {
   if (prop in INPUTS) {
     delete INPUTS[prop];
   }
@@ -386,7 +387,7 @@ function makeGUI() {
   });
 
   // Hide the text below the visualization depending on the URL.
-  if (state.hideText) {
+  if (1) {
     d3.select("#article-text").style("display", "none");
     d3.select("div.more").style("display", "none");
     d3.select("header").style("display", "none");
